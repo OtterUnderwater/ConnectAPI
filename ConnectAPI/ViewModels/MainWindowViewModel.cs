@@ -39,10 +39,17 @@ namespace ConnectAPI.ViewModels
         {
             // Для начала создаем клиента
             HttpClient client = new HttpClient();
+
+            //Способ первый - Ассинхронно
             // Отправляем запрос Get через клиента на сервер - await позволяет использовать его ассинхронно
-            var response = await client.GetAsync(@"https://iis.ngknn.ru/NGKNN/%D0%9C%D0%B0%D0%BC%D1%88%D0%B5%D0%B2%D0%B0%D0%AE%D0%A1/MedicMadlab/api/Catalog");
-            //получаем строку
-            var str = response.Content.ReadAsStringAsync().Result;
+            //var response = await client.GetAsync(@"https://iis.ngknn.ru/NGKNN/%D0%9C%D0%B0%D0%BC%D1%88%D0%B5%D0%B2%D0%B0%D0%AE%D0%A1/MedicMadlab/api/Catalog");
+            //var str = response.Content.ReadAsStringAsync().Result;
+
+            //Способ второй - Дожидаемся пока все данные придут response.Wait();
+            Task<HttpResponseMessage> response = client.GetAsync(@"https://iis.ngknn.ru/NGKNN/%D0%9C%D0%B0%D0%BC%D1%88%D0%B5%D0%B2%D0%B0%D0%AE%D0%A1/MedicMadlab/api/Catalog");
+            response.Wait();
+            var str = response.Result.Content.ReadAsStringAsync().Result;
+
             // Выбираем управление пакетами NuGet и устанавливаем в проект Newtonsoft.Json
             //вызываем свойство Catalogs и даем ему лист, десериализованные из языка Json.
             Catalogs = JsonConvert.DeserializeObject<List<Catalogs>>(str);

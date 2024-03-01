@@ -135,3 +135,4 @@ D:\otter\VSProject\ConnectAPI\ConnectAPI\obj\Debug\net7.0\ConnectAPI.pdb
 D:\otter\VSProject\ConnectAPI\ConnectAPI\obj\Debug\net7.0\ConnectAPI.csproj.Up2Date
 D:\otter\VSProject\ConnectAPI\ConnectAPI\obj\Debug\net7.0\ConnectAPI.genruntimeconfig.cache
 D:\otter\VSProject\ConnectAPI\ConnectAPI\obj\Debug\net7.0\ref\ConnectAPI.dll
+D:\otter\VSProject\ConnectAPI\ConnectAPI\obj\Debug\net7.0\ConnectAPI.sourcelink.json
